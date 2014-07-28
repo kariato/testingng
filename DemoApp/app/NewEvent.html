@@ -15,7 +15,46 @@
 			</ul>
 		</div>
 	</div>
-	
+	<div ng-controller="EditEventController" style="padding-left:20px; padding-right:20px">
+		<div class="container">
+			<h1>New Event</h1>
+			<hr />
+			<form name="newCourseForm">
+				<fieldset>
+					<label  for="name">Course Name</label>
+					<input  ng-model="event.name" required id="name" type="text" placeholder="Name of course" />
+					<label  for="creatorName">Course Name</label>
+					<input  ng-model="event.creatorName" required id="creatorName" type="text" placeholder="Instructor" />
+					<label  for="duration">Course Length</label>
+					<input  ng-model="event.duration" required id="duration" type="text" placeholder="Days" />
+					<label  for="level">Course Level</label>
+						<select ng-model="event.level" required class="input-medium">
+						<option selected value="">All</option>
+						<option value="Basic">Basic</option>
+						<option value="Intermediate">Intermediate</option>			
+						<option value="Advanced">Advanced</option>
+						</select>
+					<label  for="upVoteCount">Up Votes</label>
+					<input  ng-model="event.upVoteCount" required id="upVoteCount" type="text" placeholder="Vote Count" />
+					<label  for="cost">Course Cost</label>
+					<input  ng-model="event.cost" id="cost" required type="text" placeholder="Cost" />
+					<label  for="eventdate">Course Date</label>
+					<input  ng-model="event.eventdate" required  ng-pattern="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$" id="eventdate" type="text" placeholder="mm/dd/yyyy" />
+					<label  for="systemType">System</label>
+						<select id="systemType" required ng-model="event.systemType" class="input-medium">
+						<option selected value="1">General Electric</option>
+						<option value="2">Toshiba</option>
+						<option value="3">Siemens</option>			
+						<option value="4">Phillips</option>
+						</select>	
+				</fieldset>
+				<button type="submit" ng-disabled="newCourseForm.$invalid" ng-click="saveEvent(event, newCourseForm)" class="btn btn-primary">Save</button>
+				<button type="submit" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
+			</form>
+
+		</div>
+	</div>
+
 </div>
 <script src="/lib/jquery.min.js"></script>
 <script src="/lib/underscore-1.4.4.min.js"></script>
@@ -24,7 +63,9 @@
 <script src="/lib/angular/angular-sanitize.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/controllers/EventController.js"></script>
+<script src="/js/controllers/EditEventController.js"></script>
 <script src="/js/filters.js"></script>
 </body>
+</html>
 </html>
 
