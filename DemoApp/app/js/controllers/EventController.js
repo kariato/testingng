@@ -9,7 +9,25 @@ eventsApp.controller('EventController',
 		$scope.myClass="blue";
 		$scope.buttonDisabled= false;
 		$scope.sortorder = "name";
-		$scope.event = eventDataTmp.event;
+		$scope.event = eventDataTmp.getEvent()
+			.$promise.then(
+				function(event) { $scope.event = event; console.log(event); },
+				function(response) {console.log(response); }
+				);
+
+		$scope.saveEvent = function (event, form) {
+			if (form.$valid) {
+				eventDataTmp.save(event)
+					.$promise.then(
+						function(response) { console.log('success', response) },
+						function(response) { console.log('failure', response) }
+						);
+			};
+		}
+
+			$scope.cancelEdit = function() {
+				window.location ="/EventDetails.html"
+		}
 
 /*		{
 				name: "Test Boot Camp",

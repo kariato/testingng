@@ -1,4 +1,5 @@
 'use strict';
+'use strict';
 
 eventsApp.factory('eventData', function (eventResource, authService) {
     return {
