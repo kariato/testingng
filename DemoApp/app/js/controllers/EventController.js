@@ -1,7 +1,7 @@
 'use strict';
 
 eventsApp.controller('EventController',
-	function EventController($scope) {
+	function EventController($scope, eventDataTmp) {
 
 		$scope.snippet='<span style="color:red">hi there</span>';
 		$scope.boolValue=false;
@@ -9,7 +9,9 @@ eventsApp.controller('EventController',
 		$scope.myClass="blue";
 		$scope.buttonDisabled= false;
 		$scope.sortorder = "name";
-		$scope.event = {
+		$scope.event = eventDataTmp.event;
+
+/*		{
 				name: "Test Boot Camp",
 				date: "1/1/2014",
 				time: "11:45 am",
@@ -27,7 +29,7 @@ eventsApp.controller('EventController',
 						{ name: "CT Imaging 401",creatorName: "Mike McVey",duration: 3, level: "Advanced", abstract:"TBD", upVoteCount: 0  , cost: 1000, eventdate: Date.parse("3/1/2014"), systemType: 4},
 						{ name: "CT Imaging 501",creatorName: "Mike McVey",duration: 78, level: "Advanced", abstract:"TBD", upVoteCount: 0  , cost: 10000, eventdate: Date.parse("5/1/2014"), systemType: 1}
 				]
-		}
+		}*/
 
 		$scope.upVoteSession = function(session) {
 			session.upVoteCount++;
